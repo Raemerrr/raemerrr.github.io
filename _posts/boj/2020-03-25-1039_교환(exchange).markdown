@@ -10,76 +10,69 @@ bfs 를 돌며 가능한 경우의 수를 모두 구하고,
 방문 여부를 한 사이클마다 초기화 한다.  
 `참고 블로그` : https://yabmoons.tistory.com/152  
 소스코드:
+	
+	#include <iostream>
+	#include <queue>
+	#include <string>
+	#include <algorithm>
+	#include <set>
 
-#include <iostream>
-#include <queue>
-#include <string>
-#include <algorithm>
-#include <set>
+	using namespace std;
+	string N;
+	int K, M, MAX;
 
-using namespace std;
-string N;
-int K, M, MAX;
-
-void Proc()
-{
-	int currCnt = 0;
-	queue<string> q;
-	q.emplace(N);
-	int MAX = 0;
-	while (!q.empty() && currCnt < K)
-	{
-		set<string> visited;
-		//한 사이클 시작
-		for (int z = 0, size = q.size(); z < size; z++)
+	void Proc()
 		{
-			string front = q.front();
-			q.pop();
-			for (int i = 0; i < M - 1; i++)
+		int currCnt = 0;
+		queue<string> q;
+		q.emplace(N);
+		int MAX = 0;
+		while (!q.empty() && currCnt < K)
+		{
+			set<string> visited;
+			//한 사이클 시작
+			for (int z = 0, size = q.size(); z < size; z++)
 			{
-				for (int j = i + 1; j < M; j++)
+				string front = q.front();
+				q.pop();
+				for (int i = 0; i < M - 1; i++)
 				{
-					if (front[j] == '0' && i == 0) { continue; }
-					swap(front[i], front[j]);
-					if (visited.find(front) == visited.end())
+					for (int j = i + 1; j < M; j++)
 					{
-						if (currCnt + 1 == K && MAX < stoi(front))
+						if (front[j] == '0' && i == 0) { continue; }
+						swap(front[i], front[j]);
+						if (visited.find(front) == visited.end())
 						{
-							MAX = stoi(front);
+						if (currCnt + 1 == K && MAX < stoi(front))
+							{
+								MAX = stoi(front);
+							}
+							visited.emplace(front);
+							q.emplace(front);
 						}
-						visited.emplace(front);
-						q.emplace(front);
+						swap(front[i], front[j]);
 					}
-					swap(front[i], front[j]);
 				}
 			}
+			//한 사이클 종료
+			currCnt++;
 		}
-		//한 사이클 종료
-		currCnt++;
+		if (currCnt != K) { cout << "-1\n";	return; }
+		cout << MAX << "\n";
+		return;
 	}
-	if (currCnt != K) { cout << "-1\n";	return; }
-	cout << MAX << "\n";
-	return;
-}
 
-int main()
-{
-	ios_base::sync_with_stdio(false);
-	cin.tie(0);
-	cin >> N >> K;
-	M = N.size();
-	if (M == 1 || (stoi(N) % 10 == 0 && M == 2))
+	int main()
 	{
-		cout << "-1\n";
+		ios_base::sync_with_stdio(false);
+		cin.tie(0);
+		cin >> N >> K;
+		M = N.size();
+		if (M == 1 || (stoi(N) % 10 == 0 && M == 2))
+		{
+			cout << "-1\n";
+			return 0;
+		}
+		Proc();
 		return 0;
 	}
-	Proc();
-	return 0;
-}
-
-
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
-
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
