@@ -1,3 +1,4 @@
+remote_theme : LiXizhi/lixizhi.github.io
 # Site settings
 title: LiXizhi's Personal Website
 email: lixizhi@yeah.net
@@ -10,7 +11,7 @@ description: Xizhi's Ideas & Blogs
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://raemerrr.github.com" # the base hostname & protocol for your site
 # twitter_username: jekyllrb
-github_username: LiXizhi
+github_username: Raemerrr
 permalink: /:year/:month/:day/:title/
 # this is the url root of the view source link on the footer page.
 viewsourceroot: https://github.com/LiXizhi/LiXizhi.github.io/blob/master/
@@ -32,4 +33,3 @@ markdown: kramdown
 # highlighter: pygments
 # highlighter: rouge
 # highlighter: false
-remote_theme : LiXizhi/lixizhi.github.io
