@@ -47,7 +47,7 @@ markdown: kramdown
 include: [_pages] # Includes files inside _pages directory [Do not remove this]
 
 author:
-  name: Ashwathama
+  name: Raemerrr
   image: Raemerrr.png # The author image will be shown on the header. Place this image in /images/ folder.
   about: Developer's Growth Diary
   twitter: https://twitter.com/ #is automatically added
