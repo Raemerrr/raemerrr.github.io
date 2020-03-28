@@ -1,0 +1,28 @@
+title: Raemerrr`s Blog
+description: My Personal Blog
+author: Raemerrr
+logo: /static/img/raemerrr.png
+github: https://github.com/raemerrr
+about: Growing developer
+
+baseurl: ""
+url: "https://raemerrr.github.io/"
+
+allowsearch: true
+
+disqus_shortname: aboutashu
+google_analytics: UA-72862926-1
+
+share:
+  twitter_username: \#
+  fb_appid: 000000000000
+
+
+enableTags: true
+tagarray: []
+
+paginate: 20
+per_page: 20
+paginate_path: "/page:num/"
+markdown: kramdown
+gems: [jekyll-paginate, jekyll-gist]
