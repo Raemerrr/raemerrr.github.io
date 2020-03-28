@@ -2,11 +2,11 @@ title: Raemerrr`s Blog
 description: My Personal Blog
 author: Raemerrr
 logo: /static/img/raemerrr.png
-github: https://github.com/raemerrr
+github: https://github.com/raemerrr/
 about: Growing developer
 
-baseurl: ""
-url: "https://raemerrr.github.io/"
+baseurl: "https://raemerrr.github.io"
+url: "https://raemerrr.github.io"
 
 allowsearch: true
 
