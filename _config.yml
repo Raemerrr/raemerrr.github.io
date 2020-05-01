@@ -10,7 +10,7 @@ exclude:
 
 # Site settings
 title: Raemerrr`s Blog
-subtitle: ""
+subtitle: "Never give up"
 email: foals18@gmail.com
 name: Raemerrr
 description: >
@@ -78,28 +78,28 @@ descriptions:
 social:
   - name: Twitter
     icon: twitter
-    username: TheBenCentra
-    url: https://twitter.com/TheBenCentra
+    username: None
+    url: ""
     desc: Follow me on Twitter
     share: true
 
   - name: Facebook
     icon: facebook
-    username: thebencentra
+    username: None
     url: ""
     desc: Friend me on Facebook
     share: true
 
   - name: GitHub
     icon: github
-    username: bencentra
+    username: Raemerrr
     url: https://github.com/raemerrr/
     desc: Fork me on GitHub
     share: false
 
   - name: LinkedIn
     icon: linkedin
-    username: Ben Centra
+    username: ""
     url: ""
     desc: Connect with me on LinkedIn
     share: true
