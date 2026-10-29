@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://raemerrr.github.io/sitemap.xml
+Sitemap: https://raemerrr.github.io/3d-lotto-number-generator/sitemap.xml
