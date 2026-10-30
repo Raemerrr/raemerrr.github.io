@@ -25,7 +25,7 @@ class Page(HTMLParser):
         if self.ld and data.strip(): json.loads(data)
     def handle_endtag(self, tag):
         if tag=='script': self.ld=False
-pages={p:Page(ROOT/p) for p in ('index.html','privacy.html','404.html')}
+pages={p:Page(ROOT/p) for p in ('index.html','privacy.html','contact.html','404.html')}
 for name, page in pages.items():
     assert ('html',{'lang':'ko'}) in page.tags
     assert sum(t=='h1' for t,a in page.tags)==1
@@ -43,11 +43,14 @@ for name, page in pages.items():
         assert (ROOT/target).is_file(), (name,ref)
         if u.fragment: assert u.fragment in pages[target].ids, (name,ref)
 locs=[e.text for e in ET.parse(ROOT/'sitemap.xml').iter('{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
-assert set(locs)=={BASE+'/',BASE+'/privacy.html'}
+assert set(locs)=={BASE+'/',BASE+'/privacy.html',BASE+'/contact.html'}
 robots=(ROOT/'robots.txt').read_text()
 assert 'Disallow:' not in robots
 assert BASE+'/sitemap.xml' in robots and BASE+APP+'sitemap.xml' in robots
-assert not (ROOT/'ads.txt').exists()
+ads = (ROOT/'ads.txt').read_text().strip()
+assert ads == 'google.com, pub-4576154921851098, DIRECT, f08c47fec0942fa0'
+assert any(t == 'meta' and a.get('name') == 'google-adsense-account' and a.get('content') == 'ca-pub-4576154921851098' for t,a in pages['index.html'].tags)
+assert any(t == 'meta' and a.get('name') == 'google-site-verification' and a.get('content') for t,a in pages['index.html'].tags)
 assert struct.unpack('!II',(ROOT/'assets/og.png').read_bytes()[16:24])==(1200,630)
 # WCAG relative luminance ratios for body text, secondary text and CTA.
 def luminance(h):
@@ -57,4 +60,4 @@ for fg,bg in [('172b27','f6f5ef'),('4d6059','f6f5ef'),('4d6059','e9ece3'),('ffff
     a,b=sorted((luminance(fg),luminance(bg)))
     ratio=(b+.05)/(a+.05); assert ratio>=4.5
     print(f'Contrast #{fg}/#{bg}: {ratio:.2f}:1')
-print('PASS: Korean metadata, internal links/anchors, structured data, sitemap, robots, OG dimensions, no ads.txt or executable scripts')
+print('PASS: Korean metadata, internal links/anchors, structured data, sitemap, robots, OG dimensions, verified ads.txt and ownership tags, no executable scripts')
