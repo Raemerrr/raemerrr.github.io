@@ -7,10 +7,11 @@
 - 앱: https://raemerrr.github.io/3d-lotto-number-generator/
 - 앱 저장소: https://github.com/Raemerrr/3d-lotto-number-generator
 - `index.html`: 소개, 기능, 앱 이동, 이용 안내
+- `contact.html`: 사용자 확인된 운영자 및 이메일 문의, 개인정보 안내 연결
 - `privacy.html`: 홈페이지 자체 수집과 호스팅 접속 정보 처리 구분
 - `assets/`: CSS, SVG favicon, 1200×630 PNG OG 이미지
 - `robots.txt`: 루트 및 실제 로또 사이트맵 안내, 크롤링 차단 없음
-- `sitemap.xml`: 이 저장소가 관리하는 홈/개인정보 안내만 포함
+- `sitemap.xml`: 이 저장소가 관리하는 홈/개인정보 안내/문의 페이지만 포함
 - `404.html`: 오류 안내, 검색 색인 제외
 - [출시 체크리스트](LAUNCH_CHECKLIST.md), [검증 기록](VERIFICATION.md)
 
@@ -53,14 +54,20 @@ curl -I https://raemerrr.github.io/3d-lotto-number-generator/
 
 ## AdSense 및 ads.txt 후속 절차
 
-현재 광고·자동 광고·분석 도구를 사용하지 않으며 인증 코드, 게시자 ID, ads.txt도 없습니다. 루트 404 해결은 광고 승인 준비 완료나 승인을 뜻하지 않습니다.
+Search Console 및 AdSense 소유권 확인 메타 태그가 루트 HTML에 적용되어 있습니다. 계정 내부 인증·심사 결과는 별도로 확인합니다.
 
-1. 운영자가 AdSense 계정 화면에서 이 사이트 등록 가능 여부, 정책, 인증 방식과 실제 게시자 ID를 확인합니다. 계정 약관 동의와 신청은 운영자가 수행합니다.
-2. 실제로 요구되는 인증 값만 전달받아 별도 PR로 적용합니다. 광고 활성화는 이번 범위가 아니며 별도 지시 후 진행합니다.
-3. AdSense 화면에 제공된 **실제 ads.txt 한 줄 전체**를 확인한 뒤 저장소 루트에 `ads.txt`를 UTF-8 일반 텍스트로 추가합니다. 빈 파일이나 예시 ID를 배포하지 않습니다.
-4. 현재 검사 스크립트의 ads.txt 부재 검사를 실제 행 검증으로 변경하고 PR을 리뷰·병합합니다. 배포 workflow는 루트 ads.txt가 있으면 자동으로 포함합니다.
-5. https://raemerrr.github.io/ads.txt 가 200이고 내용이 계정 화면과 정확히 일치하는지 확인한 뒤 AdSense에서 재확인합니다. 반영 시간과 심사 결과는 서비스 측에서 결정합니다.
-6. 광고/분석 도입 전 개인정보 안내와 지역별 필요한 동의 설정, 저장소·앱의 실제 처리, 외부 전송과 쿠키를 다시 검토합니다. 운영자 표시나 문의 수단이 필요하면 실제 공개 가능한 정보를 사용자에게 요청합니다. 임의 연락처를 만들지 않습니다.
+`ads.txt`에는 기존 승인 블로그의 파일과 사용자가 제공한 계정 ID를 대조한 실제 Google 게시자 행을 추가했습니다. 배포 workflow는 파일을 자동 포함합니다. 병합·배포 후 `https://raemerrr.github.io/ads.txt`의 HTTP 200과 내용을 확인해야 합니다.
+
+광고·자동 광고·분석 스크립트는 아직 사용하지 않습니다. ads.txt는 광고를 실행하지 않으며 Google이 강력 권장하는 판매자 선언입니다. 소유권 인증이나 ads.txt 배포 자체가 광고 승인 또는 게재를 뜻하지 않습니다.
+
+후속 순서:
+1. Search Console에서 두 사이트맵 제출 결과와 대표 페이지 색인 상태 확인.
+2. AdSense 사이트 목록에서 인증 및 심사 요청·결과 확인.
+3. 실제 공개 가능한 문의 수단과 운영자 정보 확정.
+4. 광고 도입 시 개인정보 고지, 대상 지역의 동의/CMP 및 게재 위치를 먼저 설정.
+5. 별도 광고 게재 결정 후 스크립트와 광고 슬롯 연결. 기존 블로그의 GA ID는 복사하지 않음.
+
+공식 근거: https://support.google.com/adsense/answer/12171612
 
 ## 인증 문제
 
